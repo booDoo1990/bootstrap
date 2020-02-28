@@ -1,62 +1,80 @@
-name: Tests
-on: [push, pull_request]
-env:
-  CI: true
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+Version: ObjectivePGP
+Comment: https://www.objectivepgp.com
+Charset: UTF-8
 
-jobs:
-  run:
-    name: Node ${{ matrix.node }}
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [10, 12]
-
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
-
-      - name: Set Node.js version
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - run: node --version
-      - run: npm --version
-      - run: java -version
-
-      - name: Set up npm cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('.github/workflows/test.yml') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-v${{ matrix.node }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('.github/workflows/test.yml') }}
-            ${{ runner.OS }}-node-v${{ matrix.node }}-
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
-      - name: Run bundlesize
-        run: npm run bundlesize
-        if: matrix.node == 10
-        env:
-          BUNDLESIZE_GITHUB_TOKEN: "${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}"
-
-      - name: Run BrowserStack tests
-        run: npm run js-test-cloud
-        if: matrix.node == 10 && github.repository == 'twbs/bootstrap' && github.event_name == 'push'
-        env:
-          BROWSER_STACK_ACCESS_KEY: "${{ secrets.BROWSER_STACK_ACCESS_KEY }}"
-          BROWSER_STACK_USERNAME: "${{ secrets.BROWSER_STACK_USERNAME }}"
-
-      - name: Run Coveralls
-        uses: coverallsapp/github-action@master
-        if: matrix.node == 10
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          path-to-lcov: "./js/coverage/lcov.info"
+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
+=bSiT
+-----END PGP PRIVATE KEY BLOCK-----
