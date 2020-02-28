@@ -290,7 +290,7 @@ Add some navigation to a card's header (or block) with Bootstrap's [nav componen
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link active" aria-current="true" href="#">Active</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -689,7 +689,7 @@ Change it to `.row-cols-3` and you'll see the fourth card wrap.
 </div>
 {{< /example >}}
 
-When you need equal height, add `.h-100` to the cards.
+When you need equal height, add `.h-100` to the cards. If you want equal heights by default, you can set `$card-height: 100%` in Sass.
 
 {{< example >}}
 <div class="row row-cols-1 row-cols-md-3">
